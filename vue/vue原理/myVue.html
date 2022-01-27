@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <h2>{{hText}}</h2>
+        <div>
+            {{msg}}
+        </div>
+        <span>{{obj.name}}--{{obj.age}}--{{obj.fav}}</span>
+        <!-- <ul>
+            <li v-for="(item,index) in response" :key="item.id">
+                <span>{{item.name}}--{{item.age}}--{{item.fav}}</span>
+            </li>
+        </ul> -->
+        <span v-show="!flag">v-show===false</span>
+        <span v-show="flag">v-show===true</span>
+        <img :src="imgSrc" alt="">
+        <input type="text" v-model="msg">
+        <button @click="btnChange"></button>
+    </div>
+</body>
+</html>
+<script src="./myVue.js"></script>
+<script>
+    new MyVue({
+        el:"#root",
+        created(){
+            console.log(this.msg)
+        },
+        data(){
+            return {
+                msg:"手码Vuejs",
+                flag:true,
+                response:[
+                    {
+                        id:"1",
+                        name:"张某人",
+                        age:"2318",
+                        fav:"shopping"
+                    },
+                    {
+                        id:"2",
+                        name:"吴某人",
+                        age:"23",
+                        fav:"ml"
+                    },
+                    {
+                        id:"3",
+                        name:"唔西迪西",
+                        age:"23",
+                        fav:"cp"
+                    }
+                ],
+                hText:"这是一个标题",
+                obj:{
+                        id:"1",
+                        name:"张某人",
+                        age:"2318",
+                        fav:"shopping"
+                    },
+                    imgSrc:"./assets/Koala.jpg"
+            }
+        },
+        methods:{
+            btnChange(){
+                this.hText = "2828288"
+            }
+        }
+
+    })
+</script>

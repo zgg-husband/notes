@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES module</title>
+    
+</head>
+
+<body>
+   
+<script>
+    //  const isPalindrome  = function(num) {
+    //         if(num<0||num<(Math.pow(2,31)*-1||num>Math.pow(2,31)-1)){
+    //             return false;
+    //         }
+    //     let newNum = num;
+    //     let arr = [];
+    //     while((newNum/10)>1){
+    //         arr.push(newNum%10);
+    //         newNum = Math.floor(newNum/10);   
+    //     }
+    //     arr.push(newNum);
+    //     let right = arr.length-1;
+    //     let left = 0;
+    //     let flag = true;
+    //     while(left<right){
+    //         if( (arr[left]!==arr[right])){
+    //                 flag =  (arr[left]!==arr[right])
+    //                 return false;
+    //         }
+    //         left++;
+    //         right--;
+    //     }
+    //     return flag
+    //  }
+
+     const isPalindrome  = function(num) {
+            if(num<0||num<(Math.pow(2,31)*-1||num>Math.pow(2,31)-1)){
+                return false;
+            }
+        let length = Math.floor(Math.log10(num))+1
+        if(length===1){
+            return true;
+        }
+        let tem = num;
+     }
+     
+     console.log(isPalindrome(112344321))
+    </script>
+</body>
+</html>

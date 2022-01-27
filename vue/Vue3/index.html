@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div id="root">
+    <span :style="[astyle,bstyle]">aaa</span>
+    <br>
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+<label for="jack">Jack</label>
+<input type="checkbox" id="john" value="John" v-model="checkedNames">
+<label for="john">John</label>
+<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+<label for="mike">Mike</label>
+<br>
+<span>Checked names: {{ checkedNames }}</span>
+<br>
+<br>
+<input type="text" v-model.lazy="input" @change="change">
+{{input}}
+  </div>
+</body>
+</html>
+<!-- vue3.0依赖 -->
+<script src="./static/vue3.0.js"></script>
+<script>
+    const root = Vue.createApp({
+      data(){
+        return {
+          input:"",
+          checkedNames:[],
+          count:0,
+          aaa:"",
+          astyle:{
+            color:"red"
+          },
+          bstyle:{
+            width:"100%",
+            height:"100%",
+            backgroundColor:"green"
+          }
+        }
+      },
+      created() {
+          this.aaa = this.count;
+      },
+      mounted(){
+        console.log(this.count,this.aaa)
+      },
+      methods:{
+        www(){
+          return 0
+        },
+        change(){
+          console.log(this.input)
+        }
+      },
+
+      computed:{
+       
+      }
+    })
+
+    // 根组件实例
+    const vm = root.mount("#root")
+
+</script>

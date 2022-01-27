@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flex常用布局</title>
+
+
+	<style type="text/css">
+	/* 请在这里完成你的 flex 布局代码 */
+	*{
+		height: 100%;
+		box-sizing: border-box;
+	}	
+	body{
+		padding: 0;
+		margin: 0;
+	}
+		#root{
+			height: 100%;
+			width: 100%;
+	    display: flex;
+	justify-content: start;
+		}
+	
+	#root .main-left{
+		width: 200px;
+		background-color: #293740;
+	}
+
+	.main-left .main-left-header{
+		height: 40px;
+		width: 100%;
+		border:1px solid #182026; 
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.hander-text{
+		display: flex;
+		align-items: center;
+		color: #fff;
+		font-weight: 700;
+	}
+	.hander-icon{
+		height: 40px;
+		width: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+	.hander-icon img{
+		width: 25px;
+		height: 25px;
+	}
+	#root .main-left-hide{
+		width: 40px;
+	}
+	#root .main-contnet{
+		flex: 1;
+	}
+
+	.TextHide{
+		display: none;
+	}
+	/* ------------  侧边END -------------- */
+
+	/* ------------- 右边Start -------------- */
+	.main-contnet {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+	.right-header{
+		height: 40px;
+		width: 100%;
+		background-color: #ebf1f5;
+		border-bottom: 1px solid #a2a3a6;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+	}
+	.right-main{
+		height: calc( 100% - 40px);
+		width: 100%;
+	}
+.tab-bar{
+	height: 30px;
+	margin-bottom: -1px;
+}
+
+.tab-bar ul{
+	list-style:none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: flex-start;
+}
+.tab-bar ul li{
+	list-style: none;
+	background-color: #f5f8fa;
+	border: 1px solid #a2a3a6;
+	display: inline-block;
+	border-right: none;
+	padding: 5px 10px;
+	margin: 0;
+	cursor: pointer;
+	
+}
+.tab-bar ul .active{
+	background-color: #fff;
+	border-bottom: none;
+}
+.tab-bar ul li:first-child{
+	border-top-left-radius: 5px;
+}
+.tab-bar ul li:last-child{
+	border-top-right-radius: 5px;
+	border-right: 1px solid #a2a3a6;
+}
+
+	</style>
+
+</head>
+
+<body>
+	
+	<!-- 
+		请在这里自行设计满足示例图片效果的 DOM 结构 
+
+		要求：DOM结构避免复杂，要充分利用 flex 的能力实现简洁的 DOM 结构满足要求。
+	-->
+<div id="root">
+	<div class="main-left ">
+		<div class="main-left-header">
+			<div class="hander-text ">侧边栏</div>
+			<div class="hander-icon"> 
+			<img src="./icons/icon-arrow-left.svg" alt="">
+			</div>
+		</div>
+	</div>
+	<div class="main-contnet">
+		<div class="right-header">
+			<div class="tab-bar">
+				<ul>
+					<li class="item active">编辑</li>
+					<li class="item">视图</li>
+					<li class="item">探索</li>
+				</ul>
+			</div>
+		</div>
+		<div class="right-main">
+
+		</div>
+	</div>
+</div>
+
+
+
+
+<script>
+let iconNode = document.querySelector(".hander-icon");
+let leftNode = document.querySelector(".main-left");
+let handerTextNode = document.querySelector(".hander-text");
+let liItems = document.querySelectorAll(".item") 
+console.log(iconNode)
+iconNode.addEventListener("click",(e)=>{
+	leftNode.classList.toggle("main-left-hide")
+	handerTextNode.classList.toggle("TextHide")
+	if(document.querySelector(".TextHide")){
+		iconNode.children[0].src = "./icons/icon-arrow-right.svg"
+	}else{
+		iconNode.children[0].src = "./icons/icon-arrow-left.svg"
+	}
+})
+console.log(liItems)
+liItems.forEach(item=>{
+	item.addEventListener("click",(e)=>{
+			liItems.forEach(liItem=>{
+				liItem.classList.remove("active")
+			})
+			e.target.classList.add("active")
+	})
+})
+
+
+</script>
+</body>
+</html>
